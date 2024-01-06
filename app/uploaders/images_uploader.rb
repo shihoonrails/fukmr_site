@@ -30,7 +30,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :resize_to_fill => [400,300]
   end
-
+  #test
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
