@@ -1,14 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Uploads</h1>
 
 <div id="uploads">
-  <% @uploads.each do |upload| %>
-    <%= render upload %>
+  <% @upload.each do |upload| %>
+  <%= render upload %>
     <p>
-      <%= link_to "Show this upload", upload %>
+      <%= link_to "投稿を見る", upload %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New upload", new_upload_path %>
+<%= link_to "New post", new_upload_path %>
+

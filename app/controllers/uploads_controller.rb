@@ -3,7 +3,7 @@ class UploadsController < ApplicationController
 
   # GET /uploads or /uploads.json
   def index
-    @uploads = Upload.all
+    @upload = Upload.all
   end
 
   # GET /uploads/1 or /uploads/1.json
@@ -26,7 +26,7 @@ class UploadsController < ApplicationController
     respond_to do |format|
       if @upload.save
         format.html { redirect_to upload_url(@upload), notice: "Upload was successfully created." }
-        format.json { render :show, status: :created, location: @upload }
+        format.json { render :index, :show, status: :created, location: @upload }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @upload.errors, status: :unprocessable_entity }
