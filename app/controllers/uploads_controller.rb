@@ -2,7 +2,7 @@ class UploadsController < ApplicationController
   before_action :set_upload, only: %i[ show edit update destroy ]
 
   # GET /uploads or /uploads.json
-  def index
+  def index 
     @upload = Upload.all
   end
 

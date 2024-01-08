@@ -1,0 +1,18 @@
+.container {
+    font-size: 100% ;
+	font-family: 'Philosopher' , serif;
+}
+.flex {
+    display: flex;
+}
+.flex .image {
+    width: 100%; /*画像サイズ指定*/
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+.flex .text {
+    margin: 0 0 0 20px;
+    padding: 0;
+}
