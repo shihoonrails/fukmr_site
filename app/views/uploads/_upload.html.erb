@@ -1,22 +1,16 @@
 
   <main>
-
-    <div id="<%= dom_id upload %>">
-      <p id="notice"><%= notice %></p>
       <p style="color: green"><%= notice %></p>
       <%= stylesheet_link_tag 'uploads', media: 'all', 'data-turbolinks-track': 'reload' %>
       <div class="container">
-        <h2>
-          <strong>Title:</strong>
+        <p class="title">
           <%= upload.title %>
         </h2>
      <div class="flex">
      <p class="image">
-        <strong>Image:</strong>
-        <%= image_tag @upload.image_url(:thumb ) if @upload.image.present? %>
+        <%= image_tag(upload.image_url) if upload.image? %>
      </p>
-     <p class="text">
-        <strong>Body:</strong>
+     <p class="body">
         <%= upload.body %>
      </p>
     </div>

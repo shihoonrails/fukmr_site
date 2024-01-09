@@ -1,4 +1,8 @@
 /* スライド */
+.carousel {
+    padding: 5%;
+}
+
 .carousel-inner {
     font-family: 'Philosopher' , serif;  
     position: relative;
