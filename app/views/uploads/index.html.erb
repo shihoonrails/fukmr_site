@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) || "Your App" %></title>
+    <%# クロスサイトリクエストフォージェリ対策 %>
+    <%= csrf_meta_tags %>
+    <%# CSPの記述 %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- 他のヘッダー要素を追加 -->
+  </head>
+  <body>
+  <!-- スライド -->  
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      </div>
+      
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <%= image_tag "body.jpg", class:"d-block w-100" %>
+          <div class="carousel-caption d-none d-md-block">
+            <h1>Fukuoka view</h1>
+            <p>写真で綴る、福岡のいいトコ。みんなで共有しよ？</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="20000">
+          <%= image_tag "body01.jpg", class:"d-block w-100" %>
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="content-h">Scenery ‣ 景色</h1>
+            <p class="content-p">福岡の魅力は多彩な自然美。海と山に囲まれ、美しい景観が広がります。
+            <br>桜や紅葉が映え、歴史ある城下町とモダンな都市が共存し、
+            <br>四季折々の風情が心を癒します。</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="20000">
+          <%= image_tag "body02.jpg", class:"d-block w-100" %>
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="content-h">Coffee ‣ カフェ</h1>
+            <p class="content-p">質の高いコーヒー文化が根付く福岡。
+            <br>洗練されたカフェが点在し、新鮮な豆を使った美味しいコーヒーが楽しめます。
+            <br>居心地の良い空間で、ゆったりとしたひと時を過ごせます。</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="20000">
+          <%= image_tag "body03.jpg", class:"d-block w-100" %>
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="content-h">Hot spring ‣ 温泉</h1>
+            <p class="content-p">地獄めぐりや温泉地巡りが楽しめ、天然の温泉が豊富。
+            <br>湯量も多く、美肌やリラックス効果が期待できます。
+            <br>伝統的な宿からモダンなスパまで多彩な選択があります。</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "body04.jpg", class:"d-block w-100" %>
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="content-h">Restaurant ‣ お食事処</h1>
+            <p class="content-p">博多ラーメンやもつ鍋など、福岡ならではの郷土料理が堪能できます。
+            <br>新鮮な海の幸も豊富で、地元食材を使った美食が楽しめ、
+            <br>食の宝庫として知られています。</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div>
+      <%= yield %>
+    </div>
+
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+  <!-- Content here -->
+  <div id="uploads">
+    <% @upload.each do |upload| %>
+    <%= render upload %>
+      <p>
+        <%= link_to "投稿を見る", upload %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "New post", new_upload_path %>
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+
